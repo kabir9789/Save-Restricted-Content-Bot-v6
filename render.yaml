@@ -37,6 +37,6 @@ services:
       - key: PREMIUM_LIMIT
         value: "500"
       - key: JOIN_LINK
-        value: https://t.me/team_spy_pro
+        value: https://t.me/team_4hl
       - key: ADMIN_CONTACT
         sync: false
