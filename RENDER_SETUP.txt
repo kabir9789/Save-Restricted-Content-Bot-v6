@@ -1,4 +1,4 @@
-SAVE RESTRICTED CONTENT BOT v3 - RENDER SETUP
+SAVE RESTRICTED CONTENT BOT v6 - RENDER SETUP
 
 This package is prepared for Render Web Service + Docker.
 
@@ -27,8 +27,8 @@ YT_COOKIES   = optional Netscape cookies text
 INSTA_COOKIES= optional Netscape cookies text
 FREEMIUM_LIMIT = 0
 PREMIUM_LIMIT  = 500
-JOIN_LINK    = https://t.me/team_spy_pro
-ADMIN_CONTACT= your Telegram admin link
+JOIN_LINK    = https://t.me/team_4hl
+ADMIN_CONTACT= https://t.me/pankaj978lt
 
 IMPORTANT:
 - Do NOT put API_HASH, BOT_TOKEN, MongoDB URL, or session strings in GitHub files.
