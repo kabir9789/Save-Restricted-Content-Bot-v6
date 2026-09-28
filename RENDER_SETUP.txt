@@ -1,0 +1,48 @@
+SAVE RESTRICTED CONTENT BOT v3 - RENDER SETUP
+
+This package is prepared for Render Web Service + Docker.
+
+1) Upload this project to a GitHub repository.
+2) Render -> New -> Web Service -> select that repository.
+3) Runtime: Docker (Render should detect the Dockerfile automatically).
+4) Root Directory: leave empty.
+5) Build Command: leave empty.
+6) Start Command: leave empty (Dockerfile already contains the start command).
+7) Health Check Path: /health
+8) Plan: Free (for testing; see the note below).
+
+REQUIRED Environment Variables:
+API_ID       = number from my.telegram.org
+API_HASH     = value from my.telegram.org
+BOT_TOKEN    = token from @BotFather
+MONGO_DB     = MongoDB connection string
+OWNER_ID     = your Telegram numeric user ID (or multiple IDs separated by spaces)
+
+OPTIONAL:
+FORCE_SUB    = Telegram channel/group ID, e.g. -1001234567890. Use 0 to disable.
+LOG_GROUP    = Telegram log group/channel ID. Use 0 to disable.
+STRING       = optional Pyrogram session string.
+DB_NAME      = telegram_downloader
+YT_COOKIES   = optional Netscape cookies text
+INSTA_COOKIES= optional Netscape cookies text
+FREEMIUM_LIMIT = 0
+PREMIUM_LIMIT  = 500
+JOIN_LINK    = https://t.me/team_spy_pro
+ADMIN_CONTACT= your Telegram admin link
+
+IMPORTANT:
+- Do NOT put API_HASH, BOT_TOKEN, MongoDB URL, or session strings in GitHub files.
+- If FORCE_SUB is 0, force-subscription is disabled.
+- If LOG_GROUP is 0, log-group features that need a log chat are disabled.
+- STRING is optional. Leave it empty unless you specifically want the premium/user session features.
+
+WHY THIS ZIP WAS CHANGED:
+- Render now uses its PORT for the Flask health server instead of a hard-coded 5000.
+- A /health endpoint is included for Render health checks.
+- Flask and the Telegram bot are started by one controlled Render entrypoint.
+- The plugins directory is resolved from the project directory, so it does not depend on Render's current working directory.
+- plugins/__init__.py and utils/__init__.py are included.
+- API_ID is converted to an integer and required variables fail with a clear message if missing.
+
+RENDER FREE NOTE:
+Render currently spins a Free Web Service down after 15 minutes without inbound traffic and wakes it on the next request. That means a Telegram bot running on a Free Web Service may not remain continuously active. For continuous bot uptime, use an always-on paid service or a hosting option that supports a continuously running worker.
